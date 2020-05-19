@@ -2,7 +2,7 @@
 Installs docker from official sources
 
 ## Requirements
-None
+Currently only supports the Ubuntu platform
 
 ## Role Variables
 - `docker_old_packages`: List, packages to remove
