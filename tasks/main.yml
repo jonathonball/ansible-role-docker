@@ -1,0 +1,33 @@
+---
+# Tasks file for docker
+
+- name: Check that host is compatible with role
+  assert:
+    that:
+      - ansible_distribution in compatible_host_os
+    fail_msg: 'Host OS must be of type: {{ compatible_host_os | join("\n") }}'
+
+- include_tasks: Ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Add users to docker group
+  user:
+    name: "{{ docker_user | default('ubuntu', True) }}"
+    groups:
+     - docker
+    append: true
+  notify: Restart docker
+
+- name: Install docker-compose
+  get_url:
+    url: "{{ compose_url }}"
+    dest: "{{ compose_path }}"
+    owner: root
+    group: docker
+    mode: 0775
+  when: install_compose == True
+
+- name: Enable docker service
+  service:
+    name: docker
+    enabled: True

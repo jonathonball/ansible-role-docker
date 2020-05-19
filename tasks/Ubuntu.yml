@@ -1,0 +1,31 @@
+---
+# Ubuntu specific docker install tasks
+
+- name: Uninstall old versions of docker
+  apt:
+    name: "{{ ubuntu_docker_old_packages }}"
+    state: absent
+    force_apt_get: True
+    update_cache: True
+
+- name: Install docker dependencies
+  apt:
+    name: "{{ ubuntu_docker_dependencies }}"
+    force_apt_get: True
+
+- name: Add docker repository key
+  apt_key:
+    url:  https://download.docker.com/linux/ubuntu/gpg
+
+- name: Add docker repository
+  apt_repository:
+    repo: >
+      deb [arch=amd64] https://download.docker.com/linux/ubuntu
+      {{ ansible_distribution_release }}
+      stable
+
+- name: Install docker
+  apt:
+    name: "{{ ubuntu_docker_packages }}"
+    force_apt_get: True
+    update_cache: true
