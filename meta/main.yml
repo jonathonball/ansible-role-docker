@@ -1,6 +1,7 @@
 galaxy_info:
   author: Jon Ball
   description: Install docker
+  role_name: docker
 
   license:
     - MIT
