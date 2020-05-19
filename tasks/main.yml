@@ -25,7 +25,7 @@
     owner: root
     group: docker
     mode: 0775
-  when: install_compose == True
+  when: install_compose
 
 - name: Enable docker service
   service:
