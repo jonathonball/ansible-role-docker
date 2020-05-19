@@ -1,10 +1,15 @@
 # Ansible Role: docker
+
+[![Build Status](https://travis-ci.org/jonathonball/ansible-role-docker.svg?branch=master)](https://travis-ci.org/jonathonball/ansible-role-docker)
+
 Installs docker from official sources
 
 ## Requirements
+
 Currently only supports the Ubuntu platform
 
 ## Role Variables
+
 - `docker_old_packages`: List, packages to remove
 - `docker_dependencies`: List, of dependency packages to install
 - `docker_packages`: List, of docker packages to install
@@ -14,6 +19,7 @@ Currently only supports the Ubuntu platform
 - `compose_path`: String, path to install docker-compose
 
 ## Dependencies
+
 None
 
 ## Example Playbook
@@ -23,7 +29,9 @@ None
          - docker
 
 ## License
+
 MIT
 
 ## Author Information
+
 [Jon Ball](mailto:jonathon.ball@gmail.com)
