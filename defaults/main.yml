@@ -11,9 +11,9 @@ ubuntu_docker_old_packages:
 ubuntu_docker_dependencies:
   - apt-transport-https
   - ca-certificates
-  -  curl
-  -  gnupg-agent
-  -  software-properties-common
+  - curl
+  - gnupg-agent
+  - software-properties-common
 
 ubuntu_docker_packages:
   - docker-ce
