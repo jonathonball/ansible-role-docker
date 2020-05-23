@@ -26,7 +26,7 @@ None
 
     - hosts: servers
       roles:
-         - docker
+         - jonathonball.docker
 
 ## License
 
